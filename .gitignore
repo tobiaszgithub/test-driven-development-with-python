@@ -1,0 +1,6 @@
+.project
+.pydevproject
+ch01/ghostdriver.log
+ch01/superlists/db.sqlite3
+__pycache__
+*.pyc

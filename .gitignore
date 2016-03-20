@@ -4,3 +4,5 @@ ghostdriver.log
 db.sqlite3
 __pycache__
 *.pyc
+org.eclipse.core.resources.prefs
+.settings/org.eclipse.core.resources.prefs

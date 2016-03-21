@@ -44,6 +44,13 @@ class NewVisitorTest(LiveServerTestCase):
         self.check_for_row_in_list_table('1: Buy peacock feathers')
         self.check_for_row_in_list_table('2: Use peacock feathers to make a fly')
         
+        inputbox = self.browser.find_element_by_id('id_new_item')
+        inputbox.send_keys('Dring a glass of water every day!')
+        inputbox.send_keys(Keys.ENTER)
+        
+        inputbox = self.browser.find_element_by_id('id_new_item')
+        inputbox.send_keys('Learn 5 words per day!')
+        inputbox.send_keys(Keys.ENTER)
         
         # Now a new user, Francis, comes along to the site.
         ## We use a new browser session to make sure that no information

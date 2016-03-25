@@ -1,13 +1,18 @@
 from selenium import webdriver
-from django.test import LiveServerTestCase
+from django.contrib.staticfiles.testing import StaticLiveServerTestCase
 from selenium.webdriver.common.keys import Keys
 
-class NewVisitorTest(LiveServerTestCase):
+class NewVisitorTest(StaticLiveServerTestCase):
     def setUp(self):
-        self.browser = browser = webdriver.Chrome()
+        #path = 'C:/Users/tho/Desktop/Python/Web Scraping/phantomjs-2.0.0-windows/bin/phantomjs.exe'
+        #driver = webdriver.PhantomJS(executable_path= path)
+        driver = browser = webdriver.Chrome()
+        self.browser = driver
+        self.browser.maximize_window()
         self.browser.implicitly_wait(3)
     
     def tearDown(self):
+        self.browser.refresh()
         self.browser.close()
     
     def test_can_start_a_list_and_retrieve_it_later(self):
@@ -55,6 +60,7 @@ class NewVisitorTest(LiveServerTestCase):
         # Now a new user, Francis, comes along to the site.
         ## We use a new browser session to make sure that no information
         ## of Edith's is coming through from cookies etc #
+        self.browser.refresh()
         self.browser.quit()
         self.browser = webdriver.Chrome()
         
